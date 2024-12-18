@@ -5,9 +5,14 @@ import iconFavorito from "./iconFavorito.png"
 import iconNoFavorito from "./iconNoFavorito.png"
 
 const Card = ({id, capa, titulo}:{id: number; capa: string; titulo: string}) => {
+    type itemType = {
+        id: number;
+        capa: string;
+        titulo: string;
+    };
 
     const {favorito, agregarFavorito} = useFavoritosContext();
-    const isFavorito = favorito.some(item => item.id === id);
+    const isFavorito = favorito.some((item: itemType) => item.id === id);
     const icon = isFavorito ? iconFavorito : iconNoFavorito;
 
     return(

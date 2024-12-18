@@ -6,7 +6,15 @@ import NotFound from "../NotFound";
 import { useState, useEffect } from "react";
 
 const Player = () => {
-    const [video, setVideo] = useState(null);
+    type Video = {
+        id: number;
+        titulo: string;
+        capa: string;
+        link: string;
+    }
+
+    // const [video: Video, setVideo] = useState(null);
+    const [video, setVideo] = useState<Video | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const { id } = useParams();
 
@@ -56,10 +64,10 @@ const Player = () => {
                     height="100%" 
                     src={video?.link}
                     title={video?.titulo} 
-                    frameborder="0" 
+                    // frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen
+                    // referrerpolicy="strict-origin-when-cross-origin" 
+                    // allowfullscreen
                 />
             </section>
         </div>
