@@ -4,17 +4,11 @@ import Titulo from "../../components/Titulo";
 import styles from "./Player.module.css";
 import NotFound from "../NotFound";
 import { useState, useEffect } from "react";
+import { videoType } from "../../context/Favoritos";
 
 const Player = () => {
-    type Video = {
-        id: number;
-        titulo: string;
-        capa: string;
-        link: string;
-    }
-
     // const [video: Video, setVideo] = useState(null);
-    const [video, setVideo] = useState<Video | null>(null);
+    const [video, setVideo] = useState<videoType | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const { id } = useParams();
 

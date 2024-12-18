@@ -1,17 +1,10 @@
 import { Link } from "react-router-dom";
-import { useFavoritosContext } from "../../context/Favoritos";
+import { useFavoritosContext, videoType } from "../../context/Favoritos";
 import styles from "./Card.module.css";
 import iconFavorito from "./iconFavorito.png"
 import iconNoFavorito from "./iconNoFavorito.png"
 
 const Card = ({id, capa, titulo, link}:{id: number; capa: string; titulo: string; link: string}) => {
-    type videoType = {
-        id: number;
-        capa: string;
-        titulo: string;
-        link: string;
-    };
-
     const {favorito, agregarFavorito} = useFavoritosContext();
     const isFavorito = favorito.some((item: videoType) => item.id === id);
     const icon = isFavorito ? iconFavorito : iconNoFavorito;

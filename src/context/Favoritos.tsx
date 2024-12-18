@@ -1,14 +1,14 @@
 import { createContext, FC, useState, useContext } from "react";
-interface Video {
+type videoType = {
     id: number;
     titulo: string;
     capa: string;
     link: string;
   }
   
-interface FavoritosContextType {
-    favorito: Video[];
-    setFavorito: (favorito: Video[]) => void;
+type FavoritosContextType = {
+    favorito: videoType[];
+    setFavorito: (favorito: videoType[]) => void;
   }
 
 const FavoritosContext = createContext<FavoritosContextType>({ favorito: [], setFavorito: () => {} });
@@ -18,7 +18,7 @@ FavoritosContext.displayName = "Favoritos";
 
 const FavoritosProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     // const [favorito, setFavorito] = useState([]);
-    const [favorito, setFavorito] = useState<Video[]>([]);
+    const [favorito, setFavorito] = useState<videoType[]>([]);
 
     return (
         <FavoritosContext.Provider value={{ favorito, setFavorito }}>
@@ -30,7 +30,7 @@ const FavoritosProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
 const useFavoritosContext = () => {
     const { favorito, setFavorito } = useContext(FavoritosContext);
 
-    function agregarFavorito(nuevoFavorito: Video) {
+    function agregarFavorito(nuevoFavorito: videoType) {
         const favoritoRepetido = favorito.some(item=> item.id === nuevoFavorito.id);
         let nuevaLista= [...favorito];
         if (!favoritoRepetido) {
@@ -46,4 +46,5 @@ const useFavoritosContext = () => {
 }
 
 export default FavoritosProvider;
+export type { videoType };
 export { FavoritosContext, useFavoritosContext };

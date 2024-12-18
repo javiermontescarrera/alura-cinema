@@ -3,15 +3,9 @@ import Titulo from "../../components/Titulo";
 import Card from "../../components/Card";
 import styles from "./index.module.css";
 import { useState, useEffect } from "react";
+import { videoType } from "../../context/Favoritos";
 
 const Inicio = () => {
-    type videoType = {
-        id: number;
-        capa: string;
-        titulo: string;
-        link: string;
-    };
-    
     const [videos, setVideos] = useState<videoType[]>([]);
 
     useEffect(() => {
