@@ -4,7 +4,7 @@ import styles from "./Card.module.css";
 import iconFavorito from "./iconFavorito.png"
 import iconNoFavorito from "./iconNoFavorito.png"
 
-const Card = ({id, capa, titulo}:{id: number; capa: string; titulo: string}) => {
+const Card = ({id, capa, titulo, link}:{id: number; capa: string; titulo: string; link: string}) => {
     type itemType = {
         id: number;
         capa: string;
@@ -26,7 +26,7 @@ const Card = ({id, capa, titulo}:{id: number; capa: string; titulo: string}) => 
                 src={icon} 
                 alt="Icono Favorito" 
                 className={styles.favorito}
-                onClick={() => agregarFavorito({id, capa, titulo})}
+                onClick={() => agregarFavorito({id, capa, titulo, link})}
             />
         </div>
     );
