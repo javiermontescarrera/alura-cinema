@@ -5,7 +5,7 @@ import iconFavorito from "./iconFavorito.png"
 import iconNoFavorito from "./iconNoFavorito.png"
 
 const Card = ({id, capa, titulo, link}:{id: number; capa: string; titulo: string; link: string}) => {
-    type itemType = {
+    type videoType = {
         id: number;
         capa: string;
         titulo: string;
@@ -13,7 +13,7 @@ const Card = ({id, capa, titulo, link}:{id: number; capa: string; titulo: string
     };
 
     const {favorito, agregarFavorito} = useFavoritosContext();
-    const isFavorito = favorito.some((item: itemType) => item.id === id);
+    const isFavorito = favorito.some((item: videoType) => item.id === id);
     const icon = isFavorito ? iconFavorito : iconNoFavorito;
 
     return(

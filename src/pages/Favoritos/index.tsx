@@ -5,6 +5,12 @@ import { useFavoritosContext } from "../../context/Favoritos";
 import styles from "./Favoritos.module.css";
 
 const Favoritos = () => {
+    type videoType = {
+        id: number;
+        capa: string;
+        titulo: string;
+        link: string;
+    };
 
     const {favorito} = useFavoritosContext();
 
@@ -16,11 +22,7 @@ const Favoritos = () => {
             </Titulo>
             <section className={styles.container}>
                 {
-                    favorito.map((fav: {
-                        id: number;
-                        titulo: string;
-                        capa: string;
-                    }) => {
+                    favorito.map((fav: videoType) => {
                             return <Card {...fav} />
                         }
                     )
