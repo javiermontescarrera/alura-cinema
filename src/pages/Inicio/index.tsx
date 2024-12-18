@@ -5,8 +5,14 @@ import styles from "./index.module.css";
 import { useState, useEffect } from "react";
 
 const Inicio = () => {
+    type videoType = {
+        id: number;
+        capa: string;
+        titulo: string;
+        link: string;
+    };
     
-    const [videos, setVideos] = useState([]);
+    const [videos, setVideos] = useState<videoType[]>([]);
 
     useEffect(() => {
         fetch("https://my-json-server.typicode.com/javiermontescarrera/alura-cinema-api/videos")
