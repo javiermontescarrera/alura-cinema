@@ -21,7 +21,7 @@ const Inicio = () => {
     }, []);
 
     return (
-        <>
+        <div className={styles.inicio}>
             <Banner img="home" color="#154580" />
             <Titulo>
                 <h1>Un lugar para guardar sus videos favoritos</h1>
@@ -34,7 +34,7 @@ const Inicio = () => {
                     )
                 }
             </section>
-        </>
+        </div>
     )
 }
 
