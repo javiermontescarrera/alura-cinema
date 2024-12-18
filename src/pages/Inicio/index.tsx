@@ -28,11 +28,7 @@ const Inicio = () => {
             </Titulo>
             <section className={styles.container}>
                 {
-                    videos.map((video: {
-                        id: number;
-                        titulo: string;
-                        capa: string;
-                    }) => {
+                    videos.map((video: videoType) => {
                             return <Card {...video} />
                         }
                     )
