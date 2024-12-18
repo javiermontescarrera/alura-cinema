@@ -9,6 +9,7 @@ const Card = ({id, capa, titulo}:{id: number; capa: string; titulo: string}) => 
         id: number;
         capa: string;
         titulo: string;
+        link: string;
     };
 
     const {favorito, agregarFavorito} = useFavoritosContext();
